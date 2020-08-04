@@ -54,14 +54,20 @@
             <p id="notifyRight"class="notify">✅ Pin Matched... Secret door is opening for you</p>
         </div>
     </div>
+    <!--Javascript code-->
     <script>
+
+        //hide notification;
         const notifySection = document.getElementById("notification")
         notifySection.style.display = "none";
+
+        //generate random number;
         const generatePin = document.getElementById("generate-pin");
         generatePin.addEventListener("click",function(){
             
             document.getElementById("pin-bar-screen").value=(Math.floor(1000 + Math.random() * 9000));
         })
+        //numberpad dial funciton;
         var numpadButton = document.getElementsByClassName("button");
         for(var i=0;i<numpadButton.length;i++){
             numpadButton[i].addEventListener("click",function(){
@@ -69,16 +75,19 @@
                 if(buttonText>="0" && buttonText <="9"){
                     document.getElementById("calc-button").value += buttonText;
                 }
+                //backspace;
                 else if(buttonText == "<"){
                     var newNumber = document.getElementById("calc-button").value.slice(0,-1);
                     document.getElementById("calc-button").value = newNumber;
                 }
+                //clear numberpad;
                 else if(buttonText == "C"){
                     document.getElementById("calc-button").value = " ";
                 }
                 
             })
         }
+        //matching numberpad output and generate pin output;
         const buttonClick = document.getElementById("click-button");
         buttonClick.addEventListener("click",function(){
             var generateValue=document.getElementById("pin-bar-screen");
